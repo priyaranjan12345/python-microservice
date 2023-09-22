@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+    #centerContainer {
+        width: 80%;
+        text-align: center;
+        margin: 0px auto;
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,13 +21,16 @@
 <body>
     <div class="container-fluid">
         <h1></h1>
-        <h1 class="text-center alert alert-primary"> Employee Portal </h1>
+        <h1 class="text-center alert alert-primary"> Student Portal </h1>
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8"></div>
-            <h2>
-                Employee List
-                <button class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Add Employee</button>
+            <h2 id="centerContainer" style="max-width: 400px; padding: 10px;">
+                Student List
+                &nbsp;
+                <button class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">
+                    Add Student
+                </button>
             </h2>
         </div>
 
@@ -33,7 +44,7 @@
             </button>
             {{message}}
         </div>
-        
+
         {%endfor%}
         {%endif%}
         {%endwith%}
@@ -80,13 +91,16 @@
         <!-- End of Enter New Student Modal -->
 
         <!--Table of data-->
-        <table class="table table-hover">
+        <table class="table table-hover" id="centerContainer">
             <thead>
                 <tr>
-                    <th scope="col">S/N</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Stream</th>
+                    <th scope="col">Branch</th>
                     <th scope="col">Phone</th>
+                    <th scope="col">Regd.No</th>
+                    <th scope="col">RollNo</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -99,6 +113,9 @@
                     <td>{{row.1}}</td>
                     <td>{{row.2}}</td>
                     <td>{{row.3}}</td>
+                    <td>{{row.4}}</td>
+                    <td>{{row.5}}</td>
+                    <td>{{row.6}}</td>
                     <td>
                         <a href="/update/{{row.0}}" class="btn btn-warning btn-sm" data-toggle="modal"
                             data-target="#modaledit{{row.0}}">Edit</a>
@@ -152,6 +169,11 @@
             <!--End Table of table body-->
         </table>
         <!--End of enter new student modal-->
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" id="centerContainer">
+        <button class="btn btn-primary me-md-2" type="button">Previous</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary" type="button">Next</button>
     </div>
     <div class="col-sm-2"></div>
     </div>

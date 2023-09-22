@@ -23,16 +23,19 @@ def index():
 
 @app.route('/insert', methods = ['POST'])
 def insert():
-    
-    return redirect(url_for('Index'))
+    name = request.form['name']
+    email = request.form['email']
+    phone = request.form['phone']
+    print(name, email, phone)
+    return redirect(url_for('index'))
 
 @app.route('/delete/<string:id_data>', methods = ['GET'])
 def delete(id_data):
-    return redirect(url_for('Index'))
+    return redirect(url_for('index'))
 
 @app.route('/update', methods= ['POST', 'GET'])
 def update():
-    return redirect(url_for('Index'))
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(debug=True)
